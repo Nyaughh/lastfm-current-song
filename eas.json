@@ -1,7 +1,6 @@
 {
   "cli": {
-    "version": ">= 5.9.1",
-    "appVersionSource": "remote"
+    "version": ">=3.13.3"
   },
   "build": {
     "development": {
@@ -10,13 +9,17 @@
     },
     "preview": {
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "env": {
+          "ANDROID_NDK_HOME": "/opt/android-ndk"
+        }
       },
-      "env": {
-        "EXPO_PUBLIC_API_URL": "your-api-url"
-      }
+      "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "autoIncrement": true
+    }
   },
   "submit": {
     "production": {}
